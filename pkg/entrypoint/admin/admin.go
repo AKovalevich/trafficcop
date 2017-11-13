@@ -1,4 +1,4 @@
-package frontend
+package admin
 
 import (
 	"net/http"
@@ -38,9 +38,9 @@ func (txe *Entrypoint) Stop() {}
 func (txe *Entrypoint) Init() {
 	txe.Routes = []route.Route{
 		{
-			Path: "/hello",
+			Path: "/admin/hello",
 			Handler: func(w http.ResponseWriter, r *http.Request) {
-				fmt.Fprint(w, "Welcome!\n")
+				fmt.Fprint(w, "Hello from admin api!\n")
 			},
 		},
 	}

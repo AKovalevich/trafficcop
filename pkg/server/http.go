@@ -13,8 +13,7 @@ func (server *Server) configureMainHttpServer() {
 	s := http.NewServeMux()
 
 	for _, entrypoint := range server.mainConfiguration.EntryPoints {
-		log.Do.Info("TEST")
-		log.Do.Info(entrypoint.String())
+		log.Do.Info("Add entrypoint: " + entrypoint.String())
 
 		entrypoint.Init()
 		routesList := entrypoint.RoutesList()

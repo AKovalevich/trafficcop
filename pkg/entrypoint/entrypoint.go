@@ -5,8 +5,8 @@ import (
 	"regexp"
 	"fmt"
 
-	"github.com/AKovalevich/trafficcop/pkg/entrypoint/backend"
-	"github.com/AKovalevich/trafficcop/pkg/entrypoint/frontend"
+	"github.com/AKovalevich/trafficcop/pkg/entrypoint/api"
+	"github.com/AKovalevich/trafficcop/pkg/entrypoint/admin"
 	"github.com/AKovalevich/trafficcop/pkg/route"
 )
 
@@ -39,14 +39,14 @@ func (e *EntrypointList) Set(value string) error {
 	for _, entrypointName := range entrypoints {
 		// Try to create entrypoint
 		switch entrypointName {
-		case "backend":
-			textClassifierEntrypoint := backend.New()
-			textClassifierEntrypoint.Name = "backend"
+		case "api":
+			textClassifierEntrypoint := api.New()
+			textClassifierEntrypoint.Name = "api"
 			*e = append(*e, textClassifierEntrypoint)
 			break
-		case "frontend":
-			profanityEntrypoint := frontend.New()
-			profanityEntrypoint.Name = "frontend"
+		case "admin":
+			profanityEntrypoint := admin.New()
+			profanityEntrypoint.Name = "admin"
 			*e = append(*e, profanityEntrypoint)
 		}
 	}
